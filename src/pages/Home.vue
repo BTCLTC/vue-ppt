@@ -31,12 +31,19 @@
     <div class="normal-rocket"></div>
     <div class="normal-rocket"></div>
     <div class="text">web的发展和前景</div>
-    <input type="text" @keyup.right="keyDown" class="inputNone" autofocus>
   </div>
 </template>
 
 <script>
   export default {
+    mounted () {
+      //监听方向右键，跳转到下一页
+      document.addEventListener('keydown', (e) => {
+        if (e.keyCode == 39) {
+          this.keyDown()
+        }
+      }, false)
+    },
     methods: {
       keyDown () {
         this.$router.push('/1')
